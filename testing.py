@@ -11,7 +11,12 @@ class Child(Parent):
         super().__init__(Father, Mother)
         self.son = Son
     def age_diff(self):
-        return self.father - self.son
+        father_major = self.father - self.son
+        mother_major = self.mother - self.son
+        if father_major > self.son:
+            return father_major
+        return mother_major
+
     
 Age = Parent(50, 48)
 print(Age.age_diff())
